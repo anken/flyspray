@@ -99,4 +99,12 @@ $user = new User($uid);
 // Load translations
 load_translations();
 
+function debuglog($str)
+{
+    $file = fopen("debug.log", "a+");
+    fwrite($file, $str."\n");
+    fflush($file);
+    fclose($file);
+}
+
 ?>
