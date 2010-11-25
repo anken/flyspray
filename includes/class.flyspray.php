@@ -944,7 +944,7 @@ class Flyspray
      */
     function check_email($email)
     {
-        include_once 'Validate.php';
+        include_once 'includes/external/Validate.php';
 
         return Validate::email($email);
     }
