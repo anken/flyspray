@@ -156,6 +156,13 @@ class Project
         $result = $db->x->getAll($this->_list_sql($field['list_id'], $where), null, $params);
         return array_merge($required, $result);
     }
+    
+    function createRootCategory($listid)
+    {
+        global $db;
+        
+        $db->x->execParam('INSERT INTO {list_category} (lft, rgt, category_name, list_id) VALUES (1,2,"root",?)', array($listid));
+    }
 
     function listCategories($id, $hide_hidden = true, $remove_root = true, $depth = true)
     {
@@ -166,14 +173,26 @@ class Project
         $cats = array();
 
         // retrieve the left and right value of the root node
-        $row = $db->x->getRow(
-                             "SELECT lft, rgt
-                                FROM {list_category}
-                               WHERE category_name = 'root' AND lft = 1 AND list_id = ?",
-                               null, array($id));
+        //debuglog("SELECT lft, rgt FROM {list_category} WHERE category_name='root' AND lft=1 AND list_id=".$id);
+        $rootsql = "SELECT lft, rgt FROM {list_category} WHERE category_name='root' AND lft=1 AND list_id=?";
+        
+        $row = $db->x->getRow($rootsql, null, array($id));
+        
+        // IF we FAILED :( create a new one, because something bad has happened.
+        if($row == 0)
+        {
+            debuglog("Something bad has happened to list number $id, and it's root entry has gone missing! Attempting to recover.");
+            $this->createRootCategory($id);
+            $row = $db->x->getRow($rootsql, null, array($id)); // try again!
+            if($row == 0)
+            {
+                trigger_error("class.project.php: listCategories: unable to find root category node! Unable to create a new one! BAD!");
+            }
+        }
 
         $groupby = GetColumnNames('{list_category}', 'c.category_id', 'c');
 
+        //debuglog("SELECT c.category_id, c.category_name, c.* FROM {list_category} c WHERE list_id=$id AND lft BETWEEN $row[lft] AND $row[rgt] GROUP BY $groupby ORDER BY lft ASC");
         // now, retrieve all descendants of the root node
         $result = $db->x->getAll('SELECT c.category_id, c.category_name, c.*
                                 FROM {list_category} c
