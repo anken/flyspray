@@ -2,8 +2,13 @@
   <?php
   $countlines = -1;
   $categories = $proj->listCategories(Req::val('list_id'), false, false, false);
-  $root = $categories[0];
-  unset($categories[0]);
+  if(count($categories) == 0)
+  {
+      trigger_error("common.cat.tpl: root category for list ".Req::val('list_id')." missing. We shouldn't be here.");
+  } else {
+      $root = $categories[0];
+      unset($categories[0]);
+  }
   ?>
     <form action="{$this->url(array($do, 'proj' . $proj->id, 'list'), array('list_id' => Req::val('list_id')))}" method="post">
       <table class="list" id="listTable">
