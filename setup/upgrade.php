@@ -117,7 +117,7 @@ function execute_upgrade_file($folder, $installed_version)
         $stmt = $db->x->autoPrepare('{prefs}', array('pref_name', 'pref_value'));
         foreach ($upgrade_info['fsprefs'] as $name => $value) {
             if (!in_array($name, $existing)) {
-                $stmt->execute(array($name, $value));
+                $stmt->execute(array($name, (string)$value));
             }
         }
         $stmt->free();
