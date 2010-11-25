@@ -1458,7 +1458,7 @@ td.groupsep {
 }
 
 tr.expandedinfo.show {
-	display:auto;
+	display:inline;
 }
 tr.expandedinfo.hide {
 	display:none;
