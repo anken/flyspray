@@ -33,15 +33,6 @@
           </td>
         </tr>
         <tr>
-          <td><input type="checkbox" name="changes[]" value="severity" /></td>
-          <td><label for="severity">{L('severity')}</label></td>
-          <td>
-            <select id="severity" class="adminlist" name="task_severity">
-              {!tpl_options($fs->severities, Req::val('task_severity', 2))}
-            </select>
-          </td>
-        </tr>
-        <tr>
           <td><input type="checkbox" name="changes[]" value="mark_private" /></td>
           <td><label for="private">{L('private')}</label></td>
           <td>

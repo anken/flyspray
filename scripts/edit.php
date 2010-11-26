@@ -20,7 +20,7 @@ class FlysprayDoEdit extends FlysprayDo
     function action_edit()
     {
         foreach (Get::val('ids') as $task_id) {
-            // Edit or close?
+            // Edit or close? If we have a resolution_reason, then close! otherwise, edit.
             if (Post::val('resolution_reason')) {
                 Backend::close_task($task_id, Post::val('resolution_reason'), Post::val('closure_comment'), Post::val('mark100'));
             } elseif (count(Post::val('changes'))) {

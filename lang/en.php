@@ -1,6 +1,7 @@
 <?php
 
 $language = array(
+'severity'                => 'Severity',
 'edituser'                => 'Edit user',
 'username'                => 'Username',
 'realname'                => 'Real Name',

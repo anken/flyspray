@@ -46,13 +46,6 @@ class Flyspray
     var $projects = array();
 
     /**
-     * List of severities. Loaded in i18n.inc.php
-     * @access public
-     * @var array
-     */
-    var $severities = array();
-
-    /**
      * List of all permissions to be used at various places
      * @access public
      * @var array
