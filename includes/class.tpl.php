@@ -56,10 +56,12 @@ class Tpl
     function compile(&$item)
     {
         if (strncmp($item, '<?', 2)) {
+            // php function calls in templates look like {!function(arg)}
             $item = preg_replace( '/{!([^\s&][^{}]*)}(\n?)/', '<?php echo \1; ?>\2\2', $item);
-            // For lang strings in Javascript
+            // For lang strings in Javascript - {#somefunc() or #obj->somefunc()}
             $item = preg_replace( '/{#([^\s&][^{}]*)}(\n?)/',
                     '<?php echo Filters::noJsXSS(\1); ?>\2\2', $item);
+            // parse all remaining strings that look like function calls wrapped in { }
             $item = preg_replace( '/{([^\s&][^{}]*)}(\n?)/',
                     '<?php echo Filters::noXSS(\1); ?>\2\2', $item);
         }
@@ -83,7 +85,7 @@ class Tpl
             return;
         }
 
-        // theming part
+        // if there's a themed template by this name, then use it, otherwise use the stock.
         if (is_readable(BASEDIR . '/themes/' . $this->_theme.'/templates/'.$_tpl)) {
             $_tpl_data = file_get_contents(BASEDIR . '/themes/' . $this->_theme.'/templates/'.$_tpl);
         } else {
@@ -91,11 +93,13 @@ class Tpl
         }
 
         // compilation part
+        // pass all things that look like php code to the compile() func, join the results back together
         $_tpl_data = preg_split('!(<\?php.*\?>)!sU', $_tpl_data, -1,
                 PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
         array_walk($_tpl_data, array(&$this, 'compile'));
         $_tpl_data = join('', $_tpl_data);
 
+        // replace any occurences of &lbrace; and $rbrace; with their actual characters { and }
         $from = array('&lbrace;','&rbrace;');
         $to = array('{','}');
         $_tpl_data = str_replace($from, $to, $_tpl_data);
@@ -422,9 +426,15 @@ function tpl_options($options, $selected = null, $labelIsValue = false, $attr = 
     // operate by value ..
     $selected = is_array($selected) ? $selected : (array) $selected;
     $options = is_array($options) ? $options : (array) $options;
+    
+    //$debug = print_r($options, True);
+    //$debug2 = print_r($selected, True);
+    
+    //$debug4 = "";
 
     foreach ($options as $value=>$label)
     {
+        //$debug4 .= print_r($value, True) . " " . print_r($label, True) . ";";
         if (!is_null($classcol) && isset($label[$classcol])) {
             $attr['class'] = $classcol . $label[$classcol];
         }
@@ -449,8 +459,18 @@ function tpl_options($options, $selected = null, $labelIsValue = false, $attr = 
 
         $html .= ($attr ? join_attrs($attr): '') . '>' . $label . '</option>';
     }
+    
+    //$debug3="";
+    //foreach ($selected as $value=>$label)
+    //{
+        //$debug3 .= $value." ".$label.";";
+    //}
     if (!$html) {
         $html .= '<option value="0">---</option>';
+        //$html .= "<option value='1'>options=$debug\r\n<br></option>";
+        //$html .= "<option value='2'>selected=$debug2\r\n<br></option>";
+        //$html .= "<option value='3'>$debug3\r\n<br></option>";
+        //$html .= "<option value='4'>$debug4\r\n<br></option>";
     }
 
     return $html;
