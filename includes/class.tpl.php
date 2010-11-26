@@ -117,8 +117,8 @@ class Tpl
 
         // XXX: if you find a clever way to remove the evil here,
         // send us a patch, thanks.. we don't want this..really ;)
-
-        eval( '?>'. $_tpl_data );
+        //debuglog($_tpl.": ".$_tpl_data."\r\n\r\n<BR><BR>");
+        eval( '?><!--'.$_tpl.'-->'. $_tpl_data );
     } // }}}
 
     function render()

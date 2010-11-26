@@ -23,17 +23,17 @@
     <style type="text/css">
     <?php
     if ($fs->prefs['color_field']):
-    $colors = array('#fff5dd' => '#ffe9b4', '#ecdbb7' => '#efca80', '#f5d5c6' => '#f7b390',
-                    '#ffd5d1' => '#ffb2ac', '#f3a29b' => '#f3867e');
-    end($colors);
-    if (isset($proj->fields['field' . $fs->prefs['color_field']])):
-        foreach ($proj->fields['field' . $fs->prefs['color_field']]->values as $key => $value):
-        if (!isset($value['list_item_id']) || !$value['list_item_id']) continue; ?>
-        .colorfield{$value['list_item_id']} { background-color:{key($colors)} !important; }
-        .colorfield{$value['list_item_id']}:hover { background-color:{current($colors)} !important; }
-    <?php prev($colors); 
-        endforeach; 
-    endif;
+        $colors = array('#fff5dd' => '#ffe9b4', '#ecdbb7' => '#efca80', '#f5d5c6' => '#f7b390',
+                        '#ffd5d1' => '#ffb2ac', '#f3a29b' => '#f3867e');
+        end($colors);
+        if (isset($proj->fields['field' . $fs->prefs['color_field']]->values)):
+            foreach ($proj->fields['field' . $fs->prefs['color_field']]->values as $key => $value):
+                if (!isset($value['list_item_id']) || !$value['list_item_id']) continue; ?>
+                .colorfield{$value['list_item_id']} { background-color:{key($colors)} !important; }
+                .colorfield{$value['list_item_id']}:hover { background-color:{current($colors)} !important; }
+            <?php prev($colors); 
+            endforeach; 
+        endif;
     endif; ?>
     </style>
 
