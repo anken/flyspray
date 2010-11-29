@@ -40,9 +40,9 @@ class FlysprayDoIndex extends FlysprayDo
         Flyspray::Redirect(CreateUrl('edit', array('ids' => Req::val('ids'))));
     }
 
-	function show($area = null)
-	{
-		global $page, $fs, $db, $proj, $user, $conf;
+    function show($area = null)
+    {
+	global $page, $fs, $db, $proj, $user, $conf;
 
         $perpage = '20';
         if (isset($user->infos['tasks_perpage'])) {
@@ -93,25 +93,24 @@ class FlysprayDoIndex extends FlysprayDo
         if (isset($_SESSION['latest_version']) && version_compare($fs->version, $_SESSION['latest_version'] , '<') ) {
             $page->assign('updatemsg', true);
         }
-        // }}}
         $page->setTitle($fs->prefs['page_title'] . $proj->prefs['project_title'] . ': ' . L('tasklist'));
         $page->pushTpl('index.tpl');
-	}
+    }
 
-	function _onsubmit()
+    function _onsubmit()
     {
         $area = Post::val('action');
         return $this->handle('action', $area);
-	}
+    }
 
-	function is_accessible()
-	{
-		global $user, $proj;
-        if (!$user->can_view_project($proj->id)) {
-            $proj = new Project(0);
-        }
-		return true;
+    function is_accessible()
+    {
+	global $user, $proj;
+	if (!$user->can_view_project($proj->id)) {
+	    $proj = new Project(0);
 	}
+	return true;
+    }
 }
 
 
@@ -207,7 +206,4 @@ function tpl_draw_cell($task, $colname, $format = "<td class='%s %s'>%s</td>") {
     $wsvalue = str_replace(' ', '', $value);
     return sprintf($format, 'task_'.$colname, (Filters::isAlnum($wsvalue) ? $colname.'_'.$wsvalue : ''), $value);
 }
-
-// } }}
-
 ?>

@@ -1462,7 +1462,7 @@ class Backend
                 ${$var}[]      = '(' . $db_key . ' <= ' . Flyspray::strtotime($date) . ' AND ' . $db_key . ' > 0)';
             }
         }
-
+        
         if (array_get($args, 'string')) {
             $words = explode(' ', strtr(array_get($args, 'string'), '()', '  '));
             $comments = '';
