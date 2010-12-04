@@ -318,8 +318,19 @@ class Flyspray
             // can only be global
             return $task_id;
         }
+        
+        $delim = '#';
+        $pos = strpos($task_id, '#');
+        if($pos === False) {
+            $pos = strpos($task_id, '-');
+            $delim = '-';
+            if($pos === False) {
+                $delim = ' ';
+                $pos = strpos($task_id, ' ');
+            }
+        }
 
-        @list($prefix, $task) = explode( (strpos($task_id, '#') !== false) ? '#' : ' ', $task_id);
+        @list($prefix, $task) = explode( $delim, $task_id);
         if (!$task) {
             // certainly no existing task
             return 0;
