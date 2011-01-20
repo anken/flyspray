@@ -16,13 +16,6 @@ if (is_readable ('../flyspray.conf.php') && count(parse_ini_file('../flyspray.co
    die('Flyspray already installed. Use the <a href="upgrade.php">upgrader</a> to upgrade your Flyspray, or delete flyspray.conf.php to run setup.
         You can *not* use the setup on an existing database.');
 }
-die('No, 1.0 cannot be installed at this point. Install 0.9.9 and upgrade to 1.0 instead');
-$borked = str_replace('a', 'b', array( -1 => -1 ) );
-
-if (!isset($borked[-1])) {
-    die("Flyspray cannot run here, sorry :-( PHP 4.4.x/5.0.x is buggy on your 64-bit system; you must upgrade to PHP 5.1.x\n" .
-        "or higher. ABORTING. (http://bugs.php.net/bug.php?id=34879 for details)\n");
-}
 
 // define basic stuff first.
 
