@@ -42,7 +42,7 @@
 // | Author: Lukas Smith <smith@pooteeweet.org>                           |
 // +----------------------------------------------------------------------+
 //
-// $Id: mysqli.php,v 1.69 2007/11/25 13:38:29 quipo Exp $
+// $Id: mysqli.php 295587 2010-02-28 17:16:38Z quipo $
 //
 
 require_once 'MDB2/Driver/Reverse/Common.php';
@@ -123,7 +123,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
      */
     function getTableFieldDefinition($table_name, $field_name)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -167,13 +167,21 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
                 $default = false;
                 if (array_key_exists('default', $column)) {
                     $default = $column['default'];
-                    if (is_null($default) && $notnull) {
+                    if ((null === $default) && $notnull) {
                         $default = '';
                     }
                 }
+                $definition[0] = array(
+                    'notnull' => $notnull,
+                    'nativetype' => preg_replace('/^([a-z]+)[^a-z].*/i', '\\1', $column['type'])
+                );
                 $autoincrement = false;
-                if (!empty($column['extra']) && $column['extra'] == 'auto_increment') {
-                    $autoincrement = true;
+                if (!empty($column['extra'])) {
+                    if ($column['extra'] == 'auto_increment') {
+                        $autoincrement = true;
+                    } else {
+                        $definition[0]['extra'] = $column['extra'];
+                    }
                 }
                 $collate = null;
                 if (!empty($column['collation'])) {
@@ -181,17 +189,13 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
                     $charset = preg_replace('/(.+?)(_.+)?/', '$1', $collate);
                 }
 
-                $definition[0] = array(
-                    'notnull' => $notnull,
-                    'nativetype' => preg_replace('/^([a-z]+)[^a-z].*/i', '\\1', $column['type'])
-                );
-                if (!is_null($length)) {
+                if (null !== $length) {
                     $definition[0]['length'] = $length;
                 }
-                if (!is_null($unsigned)) {
+                if (null !== $unsigned) {
                     $definition[0]['unsigned'] = $unsigned;
                 }
-                if (!is_null($fixed)) {
+                if (null !== $fixed) {
                     $definition[0]['fixed'] = $fixed;
                 }
                 if ($default !== false) {
@@ -200,7 +204,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
                 if ($autoincrement !== false) {
                     $definition[0]['autoincrement'] = $autoincrement;
                 }
-                if (!is_null($collate)) {
+                if (null !== $collate) {
                     $definition[0]['collate'] = $collate;
                     $definition[0]['charset'] = $charset;
                 }
@@ -235,7 +239,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
      */
     function getTableIndexDefinition($table_name, $index_name)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -246,7 +250,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
         $query = "SHOW INDEX FROM $table /*!50002 WHERE Key_name = %s */";
         $index_name_mdb2 = $db->getIndexName($index_name);
         $result = $db->queryRow(sprintf($query, $db->quote($index_name_mdb2)));
-        if (!PEAR::isError($result) && !is_null($result)) {
+        if (!PEAR::isError($result) && (null !== $result)) {
             // apply 'idxname_format' only if the query succeeded, otherwise
             // fallback to the given $index_name, without transformation
             $index_name = $index_name_mdb2;
@@ -310,7 +314,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
      */
     function getTableConstraintDefinition($table_name, $constraint_name)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -323,7 +327,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
         if (strtolower($constraint_name) != 'primary') {
             $constraint_name_mdb2 = $db->getIndexName($constraint_name);
             $result = $db->queryRow(sprintf($query, $db->quote($constraint_name_mdb2)));
-            if (!PEAR::isError($result) && !is_null($result)) {
+            if (!PEAR::isError($result) && (null !== $result)) {
                 // apply 'idxname_format' only if the query succeeded, otherwise
                 // fallback to the given $index_name, without transformation
                 $constraint_name = $constraint_name_mdb2;
@@ -364,50 +368,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
             if ($constraint_name == $key_name) {
                 if ($row['non_unique']) {
                     //FOREIGN KEY?
-                    $query = 'SHOW CREATE TABLE '. $db->escape($table);
-                    $constraint = $db->queryOne($query, 'text', 1);
-                    if (!PEAR::isError($constraint) && !empty($constraint)) {
-                        if ($db->options['portability'] & MDB2_PORTABILITY_FIX_CASE) {
-                            if ($db->options['field_case'] == CASE_LOWER) {
-                                $constraint = strtolower($constraint);
-                            } else {
-                                $constraint = strtoupper($constraint);
-                            }
-                        }
-                        $pattern = '/\bCONSTRAINT\s+'.$constraint_name.'\s+FOREIGN KEY\s+\(([^\)]+)\) \bREFERENCES\b ([^ ]+) \(([^\)]+)\)/i';
-                        if (!preg_match($pattern, str_replace('`', '', $constraint), $matches)) {
-                            //fallback to original constraint name
-                            $pattern = '/\bCONSTRAINT\s+'.$constraint_name_original.'\s+FOREIGN KEY\s+\(([^\)]+)\) \bREFERENCES\b ([^ ]+) \(([^\)]+)\)/i';
-                        }
-                        if (preg_match($pattern, str_replace('`', '', $constraint), $matches)) {
-                            $definition['foreign'] = true;
-                            $column_names = explode(',', $matches[1]);
-                            $referenced_cols = explode(',', $matches[3]);
-                            $definition['references'] = array(
-                                'table'  => $matches[2],
-                                'fields' => array(),
-                            );
-                            $colpos = 1;
-                            foreach ($column_names as $column_name) {
-                                $definition['fields'][trim($column_name)] = array(
-                                    'position' => $colpos++
-                                );
-                            }
-                            $colpos = 1;
-                            foreach ($referenced_cols as $column_name) {
-                                $definition['references']['fields'][trim($column_name)] = array(
-                                    'position' => $colpos++
-                                );
-                            }
-                            $definition['onupdate'] = 'NO ACTION';
-                            $definition['ondelete'] = 'NO ACTION';
-                            $definition['match']    = 'SIMPLE';
-                            return $definition;
-                        }
-                    }
-
-                    return $db->raiseError(MDB2_ERROR_NOT_FOUND, null, null,
-                        $constraint_name . ' is not an existing table constraint', __FUNCTION__);
+                    return $this->_getTableFKConstraintDefinition($table, $constraint_name_original, $definition);
                 }
                 if ($row['key_name'] == 'PRIMARY') {
                     $definition['primary'] = true;
@@ -433,10 +394,81 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
         }
         $result->free();
         if (empty($definition['fields'])) {
-            return $db->raiseError(MDB2_ERROR_NOT_FOUND, null, null,
-                $constraint_name . ' is not an existing table constraint', __FUNCTION__);
+            return $this->_getTableFKConstraintDefinition($table, $constraint_name_original, $definition);
         }
         return $definition;
+    }
+
+    // }}}
+    // {{{ _getTableFKConstraintDefinition()
+
+    /**
+     * Get the FK definition from the CREATE TABLE statement
+     *
+     * @param string $table           table name
+     * @param string $constraint_name constraint name
+     * @param array  $definition      default values for constraint definition
+     *
+     * @return array|PEAR_Error
+     * @access private
+     */
+    function _getTableFKConstraintDefinition($table, $constraint_name, $definition)
+    {
+        $db = $this->getDBInstance();
+        if (PEAR::isError($db)) {
+            return $db;
+        }
+        //Use INFORMATION_SCHEMA instead?
+        //SELECT *
+        //  FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS
+        // WHERE CONSTRAINT_SCHEMA = '$dbname'
+        //   AND TABLE_NAME = '$table'
+        //   AND CONSTRAINT_NAME = '$constraint_name';
+        $query = 'SHOW CREATE TABLE '. $db->escape($table);
+        $constraint = $db->queryOne($query, 'text', 1);
+        if (!PEAR::isError($constraint) && !empty($constraint)) {
+            if ($db->options['portability'] & MDB2_PORTABILITY_FIX_CASE) {
+                if ($db->options['field_case'] == CASE_LOWER) {
+                    $constraint = strtolower($constraint);
+                } else {
+                    $constraint = strtoupper($constraint);
+                }
+            }
+            $constraint_name_original = $constraint_name;
+            $constraint_name = $db->getIndexName($constraint_name);
+            $pattern = '/\bCONSTRAINT\s+'.$constraint_name.'\s+FOREIGN KEY\s+\(([^\)]+)\) \bREFERENCES\b ([^\s]+) \(([^\)]+)\)(?: ON DELETE ([^\s]+))?(?: ON UPDATE ([^\s]+))?/i';
+            if (!preg_match($pattern, str_replace('`', '', $constraint), $matches)) {
+                //fallback to original constraint name
+                $pattern = '/\bCONSTRAINT\s+'.$constraint_name_original.'\s+FOREIGN KEY\s+\(([^\)]+)\) \bREFERENCES\b ([^\s]+) \(([^\)]+)\)(?: ON DELETE ([^\s]+))?(?: ON UPDATE ([^\s]+))?/i';
+            }
+            if (preg_match($pattern, str_replace('`', '', $constraint), $matches)) {
+                $definition['foreign'] = true;
+                $column_names = explode(',', $matches[1]);
+                $referenced_cols = explode(',', $matches[3]);
+                $definition['references'] = array(
+                    'table'  => $matches[2],
+                    'fields' => array(),
+                );
+                $colpos = 1;
+                foreach ($column_names as $column_name) {
+                    $definition['fields'][trim($column_name)] = array(
+                        'position' => $colpos++
+                    );
+                }
+                $colpos = 1;
+                foreach ($referenced_cols as $column_name) {
+                    $definition['references']['fields'][trim($column_name)] = array(
+                        'position' => $colpos++
+                    );
+                }
+                $definition['ondelete'] = empty($matches[4]) ? 'RESTRICT' : strtoupper($matches[4]);
+                $definition['onupdate'] = empty($matches[5]) ? 'RESTRICT' : strtoupper($matches[5]);
+                $definition['match']    = 'SIMPLE';
+                return $definition;
+            }
+        }
+        return $db->raiseError(MDB2_ERROR_NOT_FOUND, null, null,
+                $constraint_name . ' is not an existing table constraint', __FUNCTION__);
     }
 
     // }}}
@@ -456,7 +488,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
      */
     function getTriggerDefinition($trigger)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -508,7 +540,7 @@ class MDB2_Driver_Reverse_mysqli extends MDB2_Driver_Reverse_Common
            return parent::tableInfo($result, $mode);
         }
 
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
