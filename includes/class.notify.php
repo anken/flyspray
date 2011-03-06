@@ -5,9 +5,9 @@
    ---------------------------------------------------
 */
 
-require 'Swift.php';
+require dirname(__FILE__).'/external/swift-mailer/lib/swift_required.php';
 
-class NotificationsThread implements Swift_Events_Listener {
+class NotificationsThread implements Swift_Events_EventListener {
 
     var $task_id = 0;
     var $thread_info = array();
