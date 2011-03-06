@@ -42,7 +42,7 @@
 // | Author: Lukas Smith <smith@pooteeweet.org>                           |
 // +----------------------------------------------------------------------+
 //
-// $Id: Common.php,v 1.42 2008/01/12 12:50:58 quipo Exp $
+// $Id: Common.php 295587 2010-02-28 17:16:38Z quipo $
 //
 
 /**
@@ -76,6 +76,10 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
 
     /**
      * Split the "[owner|schema].table" notation into an array
+     *
+     * @param string $table [schema and] table name
+     *
+     * @return array array(schema, table)
      * @access private
      */
     function splitTableSchema($table)
@@ -103,7 +107,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function getTableFieldDefinition($table, $field)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -137,7 +141,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function getTableIndexDefinition($table, $index)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -189,7 +193,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function getTableConstraintDefinition($table, $index)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -216,7 +220,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function getSequenceDefinition($sequence)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -269,7 +273,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function getTriggerDefinition($trigger)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
@@ -403,7 +407,7 @@ class MDB2_Driver_Reverse_Common extends MDB2_Module_Common
      */
     function tableInfo($result, $mode = null)
     {
-        $db =& $this->getDBInstance();
+        $db = $this->getDBInstance();
         if (PEAR::isError($db)) {
             return $db;
         }
