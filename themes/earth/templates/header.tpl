@@ -10,7 +10,7 @@
 		<h2>{$proj->prefs['project_title']}</h2>
 		<?php
 			$show_message = array('details', 'index', 'newtask', 'reports', 'depends');
-			$actions = explode('.', Req::val('action'));var_dump($this->text);
+			$actions = explode('.', Req::val('action'));
             if ($proj->prefs['intro_message'] && (in_array($do, $show_message) || in_array(reset($actions), $show_message))): ?>
 				<p id="intromessage">{!$this->text->render($proj->prefs['intro_message'], false, 'msg', $proj->id,
                                ($proj->prefs['last_updated'] < $proj->prefs['cache_update']) ? $proj->prefs['pm_instructions'] : '')}
