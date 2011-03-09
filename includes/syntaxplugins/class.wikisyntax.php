@@ -8,13 +8,31 @@ class WikiSyntax extends SyntaxPlugin
 
     function code_callback($matches)
     {
+        $index = (int)$matches[1];
+        $lang = $this->saved_code[$index]['lang'];
+        $code = $this->saved_code[$index]['code'];
+
+        // for prevent memory leaks
+        unset($this->saved_code[$index]);
+
         // translate some language names so that simpler names can be used
-        $matches[1] = strtr($matches[1], array('html' => 'html4strict', 'php' => 'php-brief'));
+        $$lang = strtr($lang, array('html' => 'html4strict', 'php' => 'php-brief'));
         // if we get HTML for example, it's already encoded
-        $geshi =& new GeSHi(htmlspecialchars_decode(trim($matches[2], " \t\n\r\0\x0b\xa0"), ENT_QUOTES), $matches[1]);
+        $geshi = new GeSHi(htmlspecialchars_decode(trim($code, " \t\n\r\0\x0b\xa0"), ENT_QUOTES), $lang);
         $geshi->enable_classes();
         $geshi->set_overall_class('code');
         return $geshi->parse_code();
+    }
+    
+    private $saved_code = array();
+    private function code_cut_tag($matches) {
+        static $index = 0;
+        $index++;
+        $this->saved_code[$index] = array(
+                'lang' => $matches[1],
+                'code' => $matches[2]
+    		);
+    	return ":code__{$index}_:";
     }
 
     function beforeCache(&$input) {
@@ -24,7 +42,7 @@ class WikiSyntax extends SyntaxPlugin
         require_once 'Text/Wiki.php';
 
         // transform it a little to save it from evil wiki parser ^^
-        $input = preg_replace('#<code (\w+)>(.*)</code>#Uuism', '<code>' . "\n" . '\1' . "\n" . '\2</code>', $input) . ' ';
+        $input = preg_replace_callback('#<code (\w+)>(.*?)</code>#Uuism', array($this, 'code_cut_tag'), $input) . ' ';
 
         // create a Wiki object with the loaded options
         $wiki = & Text_Wiki::singleton('Doku' /*$type = 'Doku'*/);
@@ -42,7 +60,8 @@ class WikiSyntax extends SyntaxPlugin
 
         $input = @$wiki->transform($input, 'Xhtml');
 
-        $input = preg_replace_callback('#<code>\n?(\w+)\n(.*)</code>#Uuism', array($this, 'code_callback'), $input);
+        // restoring code tags with highlighting
+        $input = preg_replace_callback('#:code__(\d+)_:#Uuism', array($this, 'code_callback'), $input);
     }
 
     function getHtmlAfter() {
