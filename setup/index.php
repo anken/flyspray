@@ -6,6 +6,9 @@
 // | Copyright (C) 2006-2007  by Cristian Rodriguez <judas.iscariote@flyspray.org> and Florian Schmitz <floele@gmail.com>
 // +----------------------------------------------------------------------
 
+# set the timezone
+date_default_timezone_set('Europe/Berlin');
+
 @set_time_limit(0);
 session_start();
 //do it fastest as possible.

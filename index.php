@@ -6,6 +6,9 @@
 */
 define('IN_FS', true);
 
+# set the timezone
+date_default_timezone_set('Europe/Berlin');
+
 require dirname(__FILE__). '/header.php';
 
 // Background daemon that does scheduled reminders
