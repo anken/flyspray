@@ -1,3 +1,6 @@
+===== 1.0.0 - June 2011 =====
+	* https://github.com/jumpin-banana/flyspray
+
 
 ===== 0.9.9 - 10 February 2007 =====
 
