@@ -96,7 +96,7 @@ class Setup extends Flyspray
       //than 74 % of the installations out there runs versions
       //equal or mayor to 4.3.9 which is enough for us
       //earlier versions are really buggy anyway.
-      $this->mPhpRequired			= '4.3.9';
+      $this->mPhpRequired			= '5.3.0';
       $this->xmlStatus = function_exists('xml_parser_create');
       $this->sapiStatus = (php_sapi_name() != 'cgi');
 
@@ -131,7 +131,8 @@ class Setup extends Flyspray
         @fclose($fp);
       }
       // Let's try at least...
-      @chmod($file, 0666);
+	# this breaks the attachment and cache folder.....
+      #@chmod($file, 0664);
       $this->mWriteStatus[$path] = $this->IsWriteable($file);
 
       // Return an html formated writeable/un-writeable string
