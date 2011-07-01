@@ -10,6 +10,9 @@
 // +----------------------------------------------------------------------
 //
 
+# set the timezone
+date_default_timezone_set('Europe/Berlin');
+
 @set_time_limit(0);
 ini_set('memory_limit', '32M');
 

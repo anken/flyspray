@@ -3,6 +3,9 @@
  *  Run me once for every project that uses SVN
  */
 
+# set the timezone
+date_default_timezone_set('Europe/Berlin');
+
 set_time_limit(0);
 
 define('IN_FS', true);

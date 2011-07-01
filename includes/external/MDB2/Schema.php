@@ -367,7 +367,7 @@ class MDB2_Schema extends PEAR
         }
 
         $class_name = $this->options['parser'];
-        $result = MDB2::loadClass($class_name, $this->db->getOption('debug'));
+		$result = MDB2::loadClass($class_name, $this->db->getOption('debug'));
         if (PEAR::isError($result)) {
             return $result;
         }

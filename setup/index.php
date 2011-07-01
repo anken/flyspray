@@ -895,7 +895,7 @@ class Setup extends Flyspray
       $folders = array_reverse($folders); // start with highest version
       $sql_file	= APPLICATION_PATH . '/setup/upgrade/' . basename(reset($folders)) . '/flyspray-install.xml';
 
-      $upgradeInfo = APPLICATION_PATH . '/setup/upgrade/' . reset($folders) . '/upgrade.info';
+      $upgradeInfo = APPLICATION_PATH . '/setup/upgrade/' . basename(reset($folders)) . '/upgrade.info';
       $upgradeInfo = parse_ini_file($upgradeInfo, true);
       
       // Check if the install/upgrade file exists
@@ -915,11 +915,15 @@ class Setup extends Flyspray
            return false;
        }
       
-      // Set the prefix for database objects ( before parsing)
+      // Set the prefix for database objects ( before parsing ) 
       require('MDB2/Schema.php');
       $this->mXmlSchema =& MDB2_Schema::factory($this->mDbConnection);
       $def = $this->mXmlSchema->parseDatabaseDefinitionFile($sql_file, array('db_prefix' => $db_prefix, 'db_name' => $data['db_name']));
       $op = $this->mXmlSchema->createDatabase($def);
+	if (PEAR::isError($op)) {
+		var_dump($op);
+		exit();
+	}
       
       // global prefs update
     if (isset($upgradeInfo['fsprefs'])) {

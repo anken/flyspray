@@ -32,7 +32,7 @@
     <type>text</type>
     <length>20</length>
     <notnull>false</notnull>
-    <default></default>
+    
    </field>
 
    <field>
@@ -55,7 +55,7 @@
     <name>intro_message</name>
     <type>text</type>
     <notnull>false</notnull>
-    <default></default>
+    
    </field>
 
    <field>
@@ -63,7 +63,7 @@
     <type>text</type>
     <length>255</length>
     <notnull>true</notnull>
-    <default></default>
+    
    </field>
 
    <field>
