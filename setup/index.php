@@ -359,7 +359,7 @@ class Setup extends Flyspray
                                           'db_username' => $this->GetParamValue($data, 'db_username', ''),
                                           'db_password' => $this->GetParamValue($data, 'db_password', ''),
                                           'db_name' => $this->GetParamValue($data, 'db_name', ''),
-                                          'db_prefix' => $this->GetParamValue($data, 'db_prefix', 'flyspray_' . mt_rand()),
+                                          'db_prefix' => $this->GetParamValue($data, 'db_prefix', 'flyspray_'),
                                           'version' => $this->version,
                                        ),
                            ),
