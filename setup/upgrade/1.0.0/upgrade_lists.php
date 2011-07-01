@@ -6,7 +6,10 @@ if ($sql && !$sql->FetchRow()) {
     foreach (array('os' => 'operating_system', 'resolution' => 'resolution_reason', 'status' => 'item_status',
                            'tasktype' => 'task_type', 'version' => array('product_version', 'closedby_version')) as $list => $cols) {
         $sql = $db->query('SELECT DISTINCT project_id FROM {list_'.$list.'}');
-
+		
+		# continue if we have an error or the required query returns no result
+		if (PEAR::isError($sql)) continue;
+		
         while ($row = $sql->FetchRow()) {
             // Create new list
             if ($list == 'version') {
