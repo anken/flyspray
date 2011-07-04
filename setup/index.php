@@ -801,14 +801,12 @@ class Setup extends Flyspray
 
      $result = $this->mDbConnection->x->execParam($update_user, $update_params);
 
-     if (PEAR::isError($result))
-     {
+     if (PEAR::isError($result)) {
         $_SESSION['page_heading'] = 'Failed to update Admin users details (#2).';
         $_SESSION['page_message'][] = $result->getMessage();
         return false;
      }
-     else
-     {
+     else {
         $this->mAdminUsername = $admin_username;
         $this->mAdminPassword = $admin_password;
      }
@@ -917,13 +915,20 @@ class Setup extends Flyspray
       
       // Set the prefix for database objects ( before parsing ) 
       require('MDB2/Schema.php');
+	$this->mDbConnection->setOption('use_transactions', false);
+	$this->mDbConnection->setOption('default_table_type', 'MyISAM');
       $this->mXmlSchema =& MDB2_Schema::factory($this->mDbConnection);
+	
       $def = $this->mXmlSchema->parseDatabaseDefinitionFile($sql_file, array('db_prefix' => $db_prefix, 'db_name' => $data['db_name']));
+	if (PEAR::isError($def)) {
+	var_dump($def);
+	exit();
+}
       $op = $this->mXmlSchema->createDatabase($def);
-	if (PEAR::isError($op)) {
-		var_dump($op);
-		exit();
-	}
+      if (PEAR::isError($op)) {
+	var_dump($op);
+	exit();
+}
       
       // global prefs update
     if (isset($upgradeInfo['fsprefs'])) {

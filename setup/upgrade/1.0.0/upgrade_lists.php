@@ -125,11 +125,13 @@ if ($sql && !$sql->FetchRow()) {
 		$tasks = $db->x->getAll("SELECT {$field}, task_id FROM {tasks} WHERE project_id=? ", null, $my_project_id['project_id']);
 		if ($field != 'task_priority') {
 		    foreach ($tasks as $row) {
-			$db->x->execParam('INSERT INTO {field_values} (task_id, field_value, field_id) VALUES (?,?,?)', array($row['task_id'], $row[$field], $field_id['field_id']));
-		    }
+				if(isset($row['task_id'])) {
+					$db->x->execParam('INSERT INTO {field_values} (task_id, field_value, field_id) VALUES (?,?,?)', array($row['task_id'], $row[$field], $field_id['field_id']));
+				}
+		 	}
 		} else {
 		    foreach ($tasks as $row) {
-			$db->x->execParam('INSERT INTO {field_values} (task_id, field_value, field_id) VALUES (?,?,?)', array($row['task_id'], @intval($pri_ids[$row[$field]]), $field_id['field_id']));
+				$db->x->execParam('INSERT INTO {field_values} (task_id, field_value, field_id) VALUES (?,?,?)', array($row['task_id'], @intval($pri_ids[$row[$field]]), $field_id['field_id']));
 		    }
 		}
 	    }

@@ -2,8 +2,10 @@
 <database>
 
  <name><variable>db_name</variable></name>
- <create>true</create>
+ <create>false</create>
  <overwrite>true</overwrite>
+
+ <charset></charset>
 
  <table>
 
@@ -14,80 +16,78 @@
    <field>
     <name>request_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>submitted_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>request_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>reason_given</name>
     <type>clob</type>
     <notnull>false</notnull>
-	<length>256</length>
    </field>
 
    <field>
     <name>time_submitted</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>resolved_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>time_resolved</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>deny_reason</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <index>
@@ -106,15 +106,6 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>admin_requests_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>request_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
   </declaration>
 
  </table>
@@ -128,26 +119,26 @@
    <field>
     <name>assigned_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -158,15 +149,6 @@
     </field>
     <field>
      <name>user_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>assigned_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>assigned_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -197,74 +179,68 @@
    <field>
     <name>attachment_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>comment_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>orig_name</name>
     <type>text</type>
     <length>255</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>file_name</name>
     <type>text</type>
     <length>60</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>file_type</name>
     <type>text</type>
     <length>50</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>file_size</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>added_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>date_added</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -275,15 +251,6 @@
     </field>
     <field>
      <name>comment_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>attachments_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>attachment_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -301,63 +268,59 @@
    <field>
     <name>id</name>
     <type>integer</type>
-    <length>11</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>8</length>
    </field>
 
    <field>
     <name>type</name>
     <type>text</type>
     <length>4</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>content</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>topic</name>
     <type>integer</type>
-    <length>11</length>
+    <default>0</default>
     <notnull>true</notnull>
-
+    <length>8</length>
    </field>
 
    <field>
     <name>last_updated</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>max_items</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
-  <field>
+   <field>
     <name>syntax_plugins</name>
     <type>text</type>
-    <notnull>false</notnull>
     <length>255</length>
    </field>
 
@@ -369,15 +332,6 @@
     </field>
     <field>
      <name>topic</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>cache_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -416,72 +370,60 @@
    <field>
     <name>comment_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>date_added</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>comment_text</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>syntax_plugins</name>
     <type>text</type>
     <length>255</length>
-    <notnull>false</notnull>
-    <default></default>
    </field>
 
    <field>
     <name>last_edited_time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>task_id_comments</name>
     <field>
      <name>task_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>comments_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>comment_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -499,36 +441,27 @@
    <field>
     <name>depend_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>dep_task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>dependencies_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>depend_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
    <index>
     <name>deps_task_id</name>
@@ -564,33 +497,32 @@
    <field>
     <name>record_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>field_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>field_value</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <index>
@@ -610,15 +542,6 @@
    </index>
 
    <index>
-    <name><variable>db_prefix</variable>field_values_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>record_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
     <name>field_values_unique</name>
     <unique>true</unique>
     <field>
@@ -633,6 +556,178 @@
 
   </declaration>
 
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>field_id</name>
+     <value>8</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>field_value</name>
+     <value>M</value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
  </table>
 
  <table>
@@ -644,73 +739,70 @@
    <field>
     <name>field_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>field_name</name>
     <type>text</type>
     <length>50</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>field_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>1</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>version_tense</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>default_value</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>force_default</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>list_id</name>
     <type>integer</type>
-    <length>4</length>
+    <default></default>
     <notnull>false</notnull>
-
+    <length>4</length>
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>value_required</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -737,16 +829,403 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>fields_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>field_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>field_name</name>
+     <value>Task Type</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Status</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Due date</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Priority</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Operating System</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Due in Version</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Reported version</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>field_id</name>
+     <value>8</value>
+    </field>
+
+    <field>
+     <name>field_name</name>
+     <value>Category</value>
+    </field>
+
+    <field>
+     <name>field_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>force_default</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>value_required</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -759,273 +1238,260 @@
    <field>
     <name>group_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>group_name</name>
     <type>text</type>
     <length>40</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>group_desc</name>
     <type>text</type>
     <length>150</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>is_admin</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>manage_project</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>open_new_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>modify_own_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>modify_all_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_comments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>add_comments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>edit_comments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>edit_own_comments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>delete_comments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>create_attachments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>delete_attachments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_history</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>close_own_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>close_other_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>assign_to_self</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>assign_others_to_self</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>add_to_assignees</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_reports</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>add_votes</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>edit_assignments</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>show_as_assignees</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>1</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
-   
+
    <field>
     <name>group_open</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_userlist</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_private</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>edit_private</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>view_svn</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>belongs_to_project</name>
     <field>
      <name>project_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>groups_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>group_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -1045,6 +1511,994 @@
 
   </declaration>
 
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Admin</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Members have unlimited access to all functionality.</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Developers</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Global Developers for all projects</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Reporters</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Open new tasks / add comments in all projects</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Basic</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Members can login, relying upon Project permissions only</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Pending</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Users who are awaiting approval of their accounts.</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>group_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>group_name</name>
+     <value>Project Managers</value>
+    </field>
+
+    <field>
+     <name>group_desc</name>
+     <value>Permission to do anything related to the Default Project.</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>is_admin</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>manage_project</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>open_new_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>modify_all_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_own_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_comments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>create_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>delete_attachments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_history</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_own_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>close_other_tasks</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>assign_others_to_self</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>add_to_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_reports</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>add_votes</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_assignments</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_as_assignees</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>group_open</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_userlist</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>edit_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>view_svn</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
  </table>
 
  <table>
@@ -1056,64 +2510,60 @@
    <field>
     <name>history_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>event_date</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>event_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>field_changed</name>
     <type>text</type>
     <length>50</length>
-    <notnull>false</notnull>
-    <default></default>
    </field>
 
    <field>
     <name>old_value</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>new_value</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <index>
@@ -1124,16 +2574,55 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>history_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>history_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>task_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>user_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>event_date</name>
+     <value>1130024797</value>
+    </field>
+
+    <field>
+     <name>event_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>field_changed</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>old_value</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>new_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -1146,60 +2635,58 @@
    <field>
     <name>category_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>category_name</name>
     <type>text</type>
     <length>40</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>show_in_list</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>category_owner</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>lft</name>
     <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
     <unsigned>true</unsigned>
     <length>4</length>
-    <notnull>true</notnull>
-    <default>0</default>
    </field>
 
    <field>
     <name>rgt</name>
     <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
     <unsigned>true</unsigned>
     <length>4</length>
-    <notnull>true</notnull>
-    <default>0</default>
    </field>
 
    <field>
     <name>list_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -1210,16 +2697,128 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>list_category_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>category_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>category_name</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>category_owner</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>lft</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>rgt</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>6</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>category_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>category_name</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>category_owner</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>lft</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>rgt</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>6</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>category_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>category_name</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>category_owner</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>lft</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>rgt</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>6</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -1232,50 +2831,46 @@
    <field>
     <name>list_item_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>item_name</name>
     <type>text</type>
     <length>60</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>list_position</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>show_in_list</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>1</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>version_tense</name>
     <type>integer</type>
     <length>4</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>list_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>8</length>
    </field>
 
    <index>
@@ -1286,16 +2881,929 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>list_items_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>list_item_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>item_name</name>
+     <value>All</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Windows</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Linux</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Mac OS</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Not a bug</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Won&apos;t fix</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Won&apos;t implement</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>8</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Works for me</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>9</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Deferred</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>10</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Duplicate</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>11</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Fixed</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>12</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Implemented</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>8</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>13</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Unconfirmed</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>14</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>New</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>15</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Assigned</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>16</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Researching</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>17</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Waiting on Customer</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>18</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Requires testing</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>19</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Bug Report</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>4</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>20</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Feature Request</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>4</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>21</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Development</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>5</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>22</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Flash</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>23</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Immediate</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>24</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Urgent</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>25</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>High</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>26</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Normal</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_item_id</name>
+     <value>27</value>
+    </field>
+
+    <field>
+     <name>item_name</name>
+     <value>Low</value>
+    </field>
+
+    <field>
+     <name>list_position</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>show_in_list</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>version_tense</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -1308,34 +3816,32 @@
    <field>
     <name>list_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>list_name</name>
     <type>text</type>
     <length>40</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>list_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>8</length>
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -1346,16 +3852,179 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>lists_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>list_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>list_name</name>
+     <value>os</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>resolution</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>status</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>tasktype</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>version</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>category</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>list_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>list_name</name>
+     <value>Priorities</value>
+    </field>
+
+    <field>
+     <name>list_type</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_id</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -1368,47 +4037,43 @@
    <field>
     <name>note_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>message_subject</name>
     <type>text</type>
     <length>200</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>message_body</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>last_updated</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>syntax_plugins</name>
     <type>text</type>
-    <notnull>false</notnull>
     <length>255</length>
    </field>
 
@@ -1416,15 +4081,6 @@
     <name>notes_user</name>
     <field>
      <name>user_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>notes_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>note_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -1442,35 +4098,25 @@
    <field>
     <name>message_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>time_created</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>message_data</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>notification_messages_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>message_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
   </declaration>
 
@@ -1485,36 +4131,27 @@
    <field>
     <name>recipient_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>message_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>notification_recipients_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>recipient_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
    <index>
     <name>msg_user</name>
@@ -1542,49 +4179,36 @@
    <field>
     <name>entry_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>recipient_id</name>
     <type>integer</type>
     <length>4</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>message_id</name>
     <type>text</type>
     <length>200</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>task_id_threads</name>
     <field>
      <name>task_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>notification_threads_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>entry_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -1602,36 +4226,27 @@
    <field>
     <name>notify_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>notifications_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>notify_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
    <index>
     <name>task_id_notifs</name>
@@ -1659,37 +4274,1397 @@
    <field>
     <name>pref_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>pref_name</name>
     <type>text</type>
     <length>30</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>pref_value</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
-   <index>
-    <name><variable>db_prefix</variable>prefs_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>pref_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>pref_name</name>
+     <value>fs_ver</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1.0.0 dev</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>send_background</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>3</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_server</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>4</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_port</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>5222</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>5</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_username</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_password</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>7</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_security</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>8</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_ssl</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>9</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>anon_group</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>10</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>user_notify</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>11</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>admin_email</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>flyspray@example.com</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>12</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>lang_code</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>en</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>13</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>spam_proof</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>14</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>default_project</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>15</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>dateformat</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>16</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>dateformat_extended</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>17</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>anon_reg</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>18</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>page_title</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>Flyspray:: </value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>19</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>notify_registration</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>20</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>last_update_check</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1309774513</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>21</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>global_theme</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>Bluey</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>22</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>visible_columns</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>id severity summary progress</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>23</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_server</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>24</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_user</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>25</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_pass</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>26</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>upgrader_done</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>a:11:{s:12:"clean_db.php";s:32:"257f97d46869fb9a32c36fce747d30fe";s:17:"upgrade_lists.xml";s:32:"0022e1964bbd4cdca50492a0ec127663";s:18:"upgrade_fields.xml";s:32:"2ae0208b6e62f169bd4693c4d2db28ef";s:13:"redundant.xml";s:32:"6daae146e8108a18f3068a3e0cfcfcab";s:21:"upgrade_redundant.php";s:32:"127b2d2bd9f1d3964a49dafb9d0f5f85";s:17:"upgrade_lists.php";s:32:"3ee81f43083f024eee36b30d9f67609f";s:20:"upgrade_severity.php";s:32:"0bcf55e15db01f8d0aaa12c0ee91796f";s:10:"prefix.xml";s:32:"8d07e3a79c148f1147827438168e428e";s:18:"upgrade_prefix.php";s:32:"f141d31f88f6f695df4f3585cf813d0a";s:18:"flyspray-final.xml";s:32:"52afda4cb2aa4e0da802773c198bc25d";s:12:"add_data.php";s:32:"d365c2815738dc58b24fce468cae8b6b";}</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>27</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>anon_userlist</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>28</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_enabled</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>29</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_server</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>30</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_userkey</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>cn</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>31</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_realnamekey</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>name</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>32</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_emailkey</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>mail</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>33</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>email_ssl</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>34</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>email_tls</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>35</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>resolution_list</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>2</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>36</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>resolution_dupe</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>37</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>lock_for</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>5</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>38</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>bounce_email</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>39</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_basedn</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>dc=guessant,dc=org</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>40</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>use_recaptcha</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>41</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>recaptcha_priv_key</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>42</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>recaptcha_public_key</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>43</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_bind_method</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>anonymous</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>44</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_bind_dn</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>45</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>ldap_bind_pw</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>46</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>global_email</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>47</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>global_jabber</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>48</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>default_entry</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>index</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>49</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>color_field</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>50</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>fs_ver</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1.0.0 dev</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>51</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_server</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>52</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_port</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>5222</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>53</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_username</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>54</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_password</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>55</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>anon_group</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>4</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>56</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>user_notify</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>57</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>admin_email</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>flyspray@example.com</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>58</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>lang_code</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>en</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>59</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>spam_proof</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>60</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>default_project</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>61</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>dateformat</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>62</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>dateformat_extended</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>63</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>anon_reg</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>64</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>global_theme</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>Bluey</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>65</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>visible_columns</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>id severity summary progress</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>66</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_server</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>67</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_user</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>68</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>smtp_pass</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>69</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>page_title</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>Flyspray::</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>70</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>notify_registration</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>71</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>jabber_ssl</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+   <insert>
+
+    <field>
+     <name>pref_id</name>
+     <value>72</value>
+    </field>
+
+    <field>
+     <name>pref_name</name>
+     <value>last_update_check</value>
+    </field>
+
+    <field>
+     <name>pref_value</name>
+     <value>1309774513</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -1702,251 +5677,226 @@
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>project_title</name>
     <type>text</type>
     <length>100</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>theme_style</name>
     <type>text</type>
-    <length>20</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>20</length>
    </field>
 
    <field>
     <name>default_cat_owner</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>intro_message</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>visible_columns</name>
     <type>text</type>
-    <length>255</length>
-    <notnull>true</notnull>
-
+   <length>255</length>
    </field>
 
    <field>
     <name>others_view</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>anon_open</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>notify_email</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>notify_jabber</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>notify_reply</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>notify_types</name>
     <type>text</type>
-    <length>100</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>100</length>
    </field>
 
    <field>
     <name>feed_img_url</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>feed_description</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>notify_subject</name>
     <type>text</type>
     <length>100</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>lang_code</name>
     <type>text</type>
     <length>10</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>comment_closed</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>auto_assign</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>last_updated</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>default_task</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>default_entry</name>
     <type>text</type>
-    <length>8</length>
-    <notnull>true</notnull>
     <default>index</default>
+    <notnull>true</notnull>
+    <length>8</length>
    </field>
 
    <field>
     <name>anon_view_tasks</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>send_digest</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>last_digest</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>roadmap_field</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>project_prefix</name>
     <type>text</type>
     <length>20</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>override_user_lang</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>anon_group</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>changelog_reso</name>
     <type>text</type>
     <length>100</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>svn_url</name>
     <type>text</type>
     <length>255</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>svn_user</name>
     <type>text</type>
     <length>255</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>svn_password</name>
     <type>text</type>
     <length>255</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
@@ -1958,18 +5908,8 @@
    <field>
     <name>syntax_plugins</name>
     <type>text</type>
-    <notnull>false</notnull>
     <length>255</length>
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>projects_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>project_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
    <index>
     <name>project_prefixes</name>
@@ -1982,6 +5922,381 @@
 
   </declaration>
 
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>project_title</name>
+     <value>Default Project</value>
+    </field>
+
+    <field>
+     <name>theme_style</name>
+     <value>Bluey</value>
+    </field>
+
+    <field>
+     <name>default_cat_owner</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>intro_message</name>
+     <value>Welcome to your first Flyspray project!  We hope that Flyspray provides you with many hours of increased productivity.  If you have any issues, go to http://flyspray.org/support. You can customise this message by clicking the **Manage Project** link in the menu above...</value>
+    </field>
+
+    <field>
+     <name>visible_columns</name>
+     <value>id severity summary progress</value>
+    </field>
+
+    <field>
+     <name>others_view</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>anon_open</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>notify_email</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_jabber</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_reply</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_types</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>feed_img_url</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>feed_description</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_subject</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>lang_code</name>
+     <value>en</value>
+    </field>
+
+    <field>
+     <name>comment_closed</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>auto_assign</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>last_updated</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>default_task</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>default_entry</name>
+     <value>index</value>
+    </field>
+
+    <field>
+     <name>anon_view_tasks</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>send_digest</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>last_digest</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>roadmap_field</name>
+     <value>6</value>
+    </field>
+
+    <field>
+     <name>project_prefix</name>
+     <value>PR1</value>
+    </field>
+
+    <field>
+     <name>override_user_lang</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>anon_group</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>changelog_reso</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>svn_url</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>svn_user</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>svn_password</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>mail_headers</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>syntax_plugins</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
+ </table>
+
+ <table>
+
+  <name><variable>db_prefix</variable>redundant</name>
+
+  <declaration>
+
+   <field>
+    <name>redundant_id</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <autoincrement>1</autoincrement>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>task_id</name>
+    <type>integer</type>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>opened_by_real_name</name>
+    <type>text</type>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>last_edited_by_real_name</name>
+    <type>text</type>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>closed_by_real_name</name>
+    <type>text</type>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>last_changed_by_real_name</name>
+    <type>text</type>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>last_changed_by_user_name</name>
+    <type>text</type>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>opened_by_user_name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>closed_by_user_name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>last_edited_by_user_name</name>
+    <type>text</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>255</length>
+   </field>
+
+   <field>
+    <name>last_changed_time</name>
+    <type>integer</type>
+    <default></default>
+    <notnull>false</notnull>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>attachment_count</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>comment_count</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>vote_count</name>
+    <type>integer</type>
+    <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+
+   <index>
+    <name>redundant_task_id</name>
+    <field>
+     <name>task_id</name>
+     <sorting>ascending</sorting>
+    </field>
+   </index>
+
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>redundant_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>task_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>opened_by_real_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>last_edited_by_real_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>closed_by_real_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>last_changed_by_real_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>last_changed_by_user_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>opened_by_user_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>closed_by_user_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>last_edited_by_user_name</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>last_changed_time</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>attachment_count</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>comment_count</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>vote_count</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
  </table>
 
  <table>
@@ -1993,84 +6308,75 @@
    <field>
     <name>reg_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>reg_time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_name</name>
     <type>text</type>
-    <length>32</length>
+    <default></default>
     <notnull>true</notnull>
-
+    <length>32</length>
    </field>
 
    <field>
     <name>real_name</name>
     <type>text</type>
-    <length>100</length>
+    <default></default>
     <notnull>true</notnull>
-
+    <length>100</length>
    </field>
 
    <field>
     <name>email_address</name>
     <type>text</type>
-    <length>100</length>
+    <default></default>
     <notnull>true</notnull>
-
+    <length>100</length>
    </field>
 
    <field>
     <name>jabber_id</name>
     <type>text</type>
-    <length>100</length>
+    <default></default>
     <notnull>false</notnull>
-
+    <length>100</length>
    </field>
 
    <field>
     <name>notify_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>magic_url</name>
     <type>text</type>
-    <length>40</length>
+    <default></default>
     <notnull>true</notnull>
-
+    <length>40</length>
    </field>
 
    <field>
     <name>time_zone</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
-
-   <index>
-    <name><variable>db_prefix</variable>registrations_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>reg_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
 
   </declaration>
 
@@ -2085,35 +6391,34 @@
    <field>
     <name>related_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>this_task</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>related_task</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>related_type</name>
-    <was>is_duplicate</was>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -2128,15 +6433,6 @@
     <name>related_other</name>
     <field>
      <name>related_task</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>related_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>related_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -2171,80 +6467,70 @@
    <field>
     <name>reminder_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>to_user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>from_user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>start_time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>how_often</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>last_sent</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>reminder_message</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <index>
     <name>reminders_taskid</name>
     <field>
      <name>task_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>reminders_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>reminder_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -2262,56 +6548,46 @@
    <field>
     <name>id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>name</name>
     <type>text</type>
-    <length>50</length>
+    <default></default>
     <notnull>true</notnull>
-
+    <length>50</length>
    </field>
 
    <field>
     <name>search_string</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>user_searches</name>
     <field>
      <name>user_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>searches_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -2329,160 +6605,152 @@
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>project_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>date_opened</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>opened_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>is_closed</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>date_closed</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>closed_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>closure_comment</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>item_summary</name>
     <type>text</type>
     <length>255</length>
-    <notnull>true</notnull>
-
-   </field>
-
-   <field>
-    <name>syntax_plugins</name>
-    <type>text</type>
-    <length>255</length>
-    <notnull>false</notnull>
-    <default></default>
    </field>
 
    <field>
     <name>detailed_desc</name>
     <type>clob</type>
     <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>resolution_reason</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>1</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>last_edited_by</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>last_edited_time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>percent_complete</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>mark_private</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>anon_email</name>
     <type>text</type>
     <length>100</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>task_token</name>
     <type>text</type>
-    <length>32</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>32</length>
    </field>
 
    <field>
     <name>prefix_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
+   </field>
+
+   <field>
+    <name>syntax_plugins</name>
+    <type>text</type>
+    <length>255</length>
    </field>
 
    <field>
     <name>close_after</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
@@ -2509,16 +6777,115 @@
     </field>
    </index>
 
-   <index>
-    <name><variable>db_prefix</variable>tasks_pKey</name>
-    <primary>true</primary>
+  </declaration>
+
+  <initialization>
+
+   <insert>
+
     <field>
      <name>task_id</name>
-     <sorting>ascending</sorting>
+     <value>1</value>
     </field>
-   </index>
 
-  </declaration>
+    <field>
+     <name>project_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>date_opened</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>opened_by</name>
+     <value>1130024797</value>
+    </field>
+
+    <field>
+     <name>is_closed</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>date_closed</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>closed_by</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>closure_comment</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>item_summary</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>detailed_desc</name>
+     <value>Sample Task</value>
+    </field>
+
+    <field>
+     <name>resolution_reason</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>last_edited_by</name>
+     <value>2</value>
+    </field>
+
+    <field>
+     <name>last_edited_time</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>percent_complete</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>mark_private</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>anon_email</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>task_token</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>prefix_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>syntax_plugins</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>close_after</name>
+     <value>0</value>
+    </field>
+
+   </insert>
+
+  </initialization>
 
  </table>
 
@@ -2531,192 +6898,167 @@
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_name</name>
     <type>text</type>
     <length>32</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>user_pass</name>
     <type>text</type>
     <length>40</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>real_name</name>
     <type>text</type>
     <length>100</length>
-    <notnull>true</notnull>
-
    </field>
 
    <field>
     <name>jabber_id</name>
     <type>text</type>
     <length>100</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>email_address</name>
     <type>text</type>
     <length>100</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>notify_type</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>notify_own</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>account_enabled</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>dateformat</name>
     <type>text</type>
     <length>30</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>dateformat_extended</name>
     <type>text</type>
     <length>30</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>magic_url</name>
     <type>text</type>
     <length>40</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>tasks_perpage</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>register_date</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>time_zone</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>login_attempts</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>lock_until</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>password_salt</name>
     <type>text</type>
     <length>32</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>defaultsortcolumn</name>
     <type>text</type>
     <length>255</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>defaultorder</name>
     <type>text</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>asc</default>
+    <length>4</length>
    </field>
 
    <field>
     <name>notify_blacklist</name>
     <type>text</type>
     <length>50</length>
-    <notnull>false</notnull>
-
    </field>
 
    <field>
     <name>lang_code</name>
     <type>text</type>
-    <length>10</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <length>10</length>
    </field>
 
    <field>
     <name>show_contact</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>1</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
-  <field>
+   <field>
     <name>syntax_plugins</name>
     <type>text</type>
-    <notnull>false</notnull>
     <length>255</length>
    </field>
 
@@ -2724,15 +7066,6 @@
     <name>account_enabled</name>
     <field>
      <name>user_name</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>users_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>user_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -2748,6 +7081,134 @@
 
   </declaration>
 
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>user_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>user_name</name>
+     <value>super</value>
+    </field>
+
+    <field>
+     <name>user_pass</name>
+     <value>1b3231655cebb7a1f783eddf27d254ca</value>
+    </field>
+
+    <field>
+     <name>real_name</name>
+     <value>Mr Super User</value>
+    </field>
+
+    <field>
+     <name>jabber_id</name>
+     <value>super@example.com</value>
+    </field>
+
+    <field>
+     <name>email_address</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_type</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>notify_own</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>account_enabled</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>dateformat</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>dateformat_extended</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>magic_url</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>tasks_perpage</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>register_date</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>time_zone</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>login_attempts</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>lock_until</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>password_salt</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>defaultsortcolumn</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>defaultorder</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>notify_blacklist</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>lang_code</name>
+     <value></value>
+    </field>
+
+    <field>
+     <name>show_contact</name>
+     <value>0</value>
+    </field>
+
+    <field>
+     <name>syntax_plugins</name>
+     <value></value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
  </table>
 
  <table>
@@ -2759,41 +7220,32 @@
    <field>
     <name>record_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>group_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>user_id_uig</name>
     <field>
      <name>user_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>users_in_groups_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>record_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>
@@ -2813,6 +7265,29 @@
 
   </declaration>
 
+  <initialization>
+
+   <insert>
+
+    <field>
+     <name>record_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>user_id</name>
+     <value>1</value>
+    </field>
+
+    <field>
+     <name>group_id</name>
+     <value>1</value>
+    </field>
+
+   </insert>
+
+  </initialization>
+
  </table>
 
  <table>
@@ -2824,49 +7299,40 @@
    <field>
     <name>vote_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
     <autoincrement>1</autoincrement>
+    <length>4</length>
    </field>
 
    <field>
     <name>user_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>task_id</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <field>
     <name>date_time</name>
     <type>integer</type>
-    <length>4</length>
-    <notnull>true</notnull>
     <default>0</default>
+    <notnull>true</notnull>
+    <length>4</length>
    </field>
 
    <index>
     <name>votes_task</name>
     <field>
      <name>task_id</name>
-     <sorting>ascending</sorting>
-    </field>
-   </index>
-
-   <index>
-    <name><variable>db_prefix</variable>votes_pKey</name>
-    <primary>true</primary>
-    <field>
-     <name>vote_id</name>
      <sorting>ascending</sorting>
     </field>
    </index>

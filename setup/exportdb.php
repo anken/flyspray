@@ -13,13 +13,13 @@ $conf    = @parse_ini_file('../flyspray.conf.php', true) or die('Cannot open con
 define('DEBUG_SQL', true);
 $db = NewDatabase($conf['database']);
 
-require_once dirname(__FILE__) . '/../includes/external/MDB2/MDB2/Schema.php';
+require_once dirname(__FILE__) . '/../includes/external/MDB2/Schema.php';
  
 // Now build schema object based on existing connection
 $db->setOption('idxname_format', '%s');
 $schema =& MDB2_Schema::factory($db);
 $def = $schema->getDefinitionFromDatabase();
-$schema->dumpDatabase($def, array('output_mode' => 'file', 'output' => $file), MDB2_SCHEMA_DUMP_STRUCTURE);
+$schema->dumpDatabase($def, array('output_mode' => 'file', 'output' => $file), MDB2_SCHEMA_DUMP_ALL);
 
 // Now make prefix a variable, so that it can be replaced during setup or upgrade
 $xml = file_get_contents($file);
