@@ -331,11 +331,11 @@ function update_language($lang, &$strings, $edit)
   fprintf($file, "<?php\n//\n"
     ."// This file is auto generated with .langedit.php\n"
     ."// Characters are UTF-8 encoded\n"
-    ."// \n"
+    ."//\n"
     ."// Be careful when editing this file manually, some text editors\n"
     ."// may convert text to UCS-2 or similar (16-bit) which is NOT\n"
     ."// readable by the PHP parser\n"
-    ."// \n"
+    ."//\n"
     ."// Furthermore, nothing else than the language array is saved\n"
     ."// when using the .langedit.php editor!\n//\n");
   if($lang == 'en')
