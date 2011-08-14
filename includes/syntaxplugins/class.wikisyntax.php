@@ -38,7 +38,7 @@ class WikiSyntax extends SyntaxPlugin
     function beforeCache(&$input) {
         global $conf;
         // code highlighting
-        require_once 'geshi/geshi.php';
+        require_once 'geshi-old/geshi.php';
         require_once 'Text/Wiki.php';
 
         // transform it a little to save it from evil wiki parser ^^
